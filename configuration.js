@@ -25,7 +25,7 @@ angular
   sidebar: {            // configuration related to the sidebar next to the list of downloads
     show: true,         // set to false to completely hide the sidebar. Other elements inside will be automatically hidden
 
-    stats: true,        // set to false to hide the global statistic section (contains the speed graph for now)
+    stats: false,        // set to false to hide the global statistic section (contains the speed graph for now)
 
     filters: true,      // set to false to hide the  Download Filters
 
