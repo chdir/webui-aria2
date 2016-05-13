@@ -98,8 +98,8 @@ function(_, JSON, name, utils, alerts) {
         sockRPC.onready = null;
       }
 
-      if (typeof WebSocket == "undefined") {
-        alerts.addAlert('Web sockets are not supported! Falling back to JSONP.', 'info');
+      if (true) {
+        //alerts.addAlert('Web sockets are not supported! Falling back to JSONP.', 'info');
         onready();
         return;
       }
