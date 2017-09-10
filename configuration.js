@@ -1,5 +1,12 @@
 var aria2authConfig = { token: '123' }
 
+var maybeHash = window.location.hash;
+
+if (maybeHash != null && maybeHash !== "" && maybeHash !== "#") {
+  aria2authConfig.token = maybeHash.substr(1);
+  window.location.hash = "";
+}
+
 angular
 .module('webui.services.configuration',  [])
 .constant('$name', 'Aria2 WebUI')  // name used across the entire UI
