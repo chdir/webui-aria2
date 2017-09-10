@@ -1,3 +1,5 @@
+var aria2authConfig = { token: '123' }
+
 angular
 .module('webui.services.configuration',  [])
 .constant('$name', 'Aria2 WebUI')  // name used across the entire UI
@@ -8,19 +10,14 @@ angular
   path: '/jsonrpc',
   port: 6800,
   encrypt: false,
-  auth: {                          // either add the token field or the user and pass field, not both.
-  // token: '$YOUR_SECRET_TOKEN$'
-  /*-----------------------------*/
-  // user: '*YOUR_USERNAME*',
-  // pass: '*YOUR_SECRET_PASS*'
-  },
+  auth: aria2authConfig,
   directURL: ''                   // If supplied, links will be created to enable direct download from the aria2 server, requires appropriate webserver to be configured
 })
 .constant('$enable', {
 
   torrent: true,  // bittorrent support only enabled if supported by aria2 build, set to false otherwise to permanently disable it
 
-  metalink: true, // metalink support only enabled if supported by aria2 build, set to false to permanently disable it
+  metalink: false, // metalink support only enabled if supported by aria2 build, set to false to permanently disable it
 
   sidebar: {            // configuration related to the sidebar next to the list of downloads
     show: true,         // set to false to completely hide the sidebar. Other elements inside will be automatically hidden
@@ -34,13 +31,13 @@ angular
 })
 .constant('$starredProps', [   // default list of Quick Access Properties. Can be overridden by making modification through the Global Settings dialog
   // go to Global Settings dialog to see their description
-  'dir', 'conf-path', 'auto-file-renaming', 'max-connection-per-server'
+  // nothing here — makes the screen small enough to fully fit into ldpi devices
 ])
 .constant('$downloadProps', [ // Similar to starred Quick Access properties but for adding new downloads.
   // go to Advance Download Options when adding a new download to view the list of possible options
-  'http-user', 'http-passwd', 'pause', 'dir', 'max-connection-per-server'
+  'pause', 'dir'
 ])
-.constant('$globalTimeout', 1000)  // interval to update the individual downloads
+.constant('$globalTimeout', 2000)  // interval to update the individual downloads
 ;
 
 
